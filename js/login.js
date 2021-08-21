@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-//Buscar Elementos via DOM  
+//Buscar Elementos en LOGIN.HTML
 let txtname = document.getElementById("inputEmail");
 let txtpass = document.getElementById("inputPassword");
 

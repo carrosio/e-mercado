@@ -13,10 +13,11 @@ const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 let checkName = localStorage.getItem("name")
 let checkPass = localStorage.getItem("pass")
 
-console.log(checkName)
+//console.log(checkName)
+//console.log(checkPass)
 
 
-if (checkName === null && checkPass === null) {
+if (!checkName || !checkPass) {
   window.location = "login.html"}
 else {
   localStorage.clear();
