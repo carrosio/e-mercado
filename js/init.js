@@ -13,8 +13,12 @@ const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 let checkName = localStorage.getItem("name")
 let checkPass = localStorage.getItem("pass")
 
-if (!checkName && !checkPass) {
+console.log(checkName)
+
+
+if (checkName.length < 1 && checkPass.length < 1) {
 window.location = "login.html"}
+
 
 
 var showSpinner = function(){
@@ -56,5 +60,5 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-   
+
 });
