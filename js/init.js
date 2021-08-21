@@ -16,9 +16,11 @@ let checkPass = localStorage.getItem("pass")
 console.log(checkName)
 
 
-if (checkName.length < 1 && checkPass.length < 1) {
+if (checkName === null && checkPass === null) {
   window.location = "login.html"}
+else {
   localStorage.clear();
+}
 
 
 
