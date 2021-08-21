@@ -17,7 +17,9 @@ console.log(checkName)
 
 
 if (checkName.length < 1 && checkPass.length < 1) {
-window.location = "login.html"}
+  window.location = "login.html"}
+  localStorage.clear();
+
 
 
 
