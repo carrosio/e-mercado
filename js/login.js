@@ -2,14 +2,13 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-//Buscar Elementos en LOGIN.HTML
+//Buscar Elementos v  en LOGIN.HTML
 let txtname = document.getElementById("inputEmail");
 let txtpass = document.getElementById("inputPassword");
 
 //Local Storage
 localStorage.setItem("name", txtname.value);
 localStorage.setItem("pass", txtpass.value);
-
 
 function backToIndex(){
   if (txtname.value && txtpass.value) {

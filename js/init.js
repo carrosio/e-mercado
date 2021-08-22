@@ -13,17 +13,10 @@ const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 let checkName = localStorage.getItem("name")
 let checkPass = localStorage.getItem("pass")
 
-
-//Chequeo de datos guardados
-console.log(checkName)
-console.log(checkPass)
-
 // Si no tiene nombre, lo envia al login. Si lo tiene, continua en index.
 if (!checkName) {
   window.location = "login.html"
 }
-
-//localStorage.clear()
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
