@@ -15,14 +15,15 @@ let checkPass = localStorage.getItem("pass")
 
 
 //Chequeo de datos guardados
-//console.log(checkName)
-//console.log(checkPass)
+console.log(checkName)
+console.log(checkPass)
 
 // Si no tiene nombre, lo envia al login. Si lo tiene, continua en index.
 if (!checkName) {
   window.location = "login.html"
 }
 
+//localStorage.clear()
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -65,3 +66,4 @@ var getJSONData = function(url){
 document.addEventListener("DOMContentLoaded", function(e){
 
 });
+

@@ -1,5 +1,6 @@
 function showlist(products) {
     const list = document.createElement("ul");
+    list.className = "list-group-item "
     for (let x of products) {
         //variables
         const product = document.createElement("li");
@@ -11,6 +12,7 @@ function showlist(products) {
         //aplicar class y src
         product.className = "list-group-item "
         img.src = x.imgSrc
+        img.className = "list-group-item "
         
         //dependencias 
         name.appendChild(document.createTextNode(x.name))
