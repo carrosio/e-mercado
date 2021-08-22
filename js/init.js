@@ -17,11 +17,11 @@ console.log(checkName)
 console.log(checkPass)
 
 
-if (!checkName || !checkPass) {
+if (!checkName) {
   window.location = "login.html"}
-else {
-  localStorage.clear();
-}
+//else {
+//  localStorage.clear();
+//}
 
 
 
