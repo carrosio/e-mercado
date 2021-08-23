@@ -6,6 +6,7 @@
     font-weight: bold;
 }
 
+
 .jumbotron {
   height: 50vh;
   padding: 5em inherit;
@@ -139,3 +140,23 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.usuario {
+  background-color: azure;
+  
+  border-radius: 5px;
+  max-width: fit-content;
+  min-width: 100px;
+  text-align: center;
+  flex-direction: row;
+ 
+}
+
+
+.usuarioName {
+   position: relative; top: 20%;
+   margin-left: 20px; 
+   margin-right: 20px;
+   font-weight: bold;
+}
+

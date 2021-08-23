@@ -27,6 +27,24 @@ var hideSpinner = function(){
 }
 
 
+function user(){
+  let boxName = document.createElement("div")
+  let name = document.createElement("p")
+  let ponerName = document.createTextNode(checkName)
+  let selectNav = document.getElementById("menu")
+  name.setAttribute("id", "nombreUser")
+  
+  boxName.appendChild(name)
+  selectNav.appendChild(boxName)
+  boxName.appendChild(name)
+  name.appendChild(ponerName)
+  
+  boxName.classList.add("usuario")
+  name.classList.add("usuarioName")
+}
+
+
+
 
 var getJSONData = function(url){
     var result = {};
@@ -57,6 +75,7 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  user()
 
 });
 

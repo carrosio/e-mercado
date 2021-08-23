@@ -36,5 +36,5 @@ function showlist(products) {
 document.addEventListener("DOMContentLoaded", async function (e) {
     const products = (await getJSONData(PRODUCTS_URL)).data
     showlist(products)
-
+    
 });

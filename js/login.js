@@ -21,4 +21,5 @@ function backToIndex(){
 
 document.addEventListener("DOMContentLoaded", function(e){
    document.getElementById("submitBottom").addEventListener("click", backToIndex)
+   
 });
