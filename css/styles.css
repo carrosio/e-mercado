@@ -169,7 +169,6 @@ a.custom-card:hover {
   background-color:#229FBC;
   padding: 25px;
   color: #fff;
-  height:  
   
 }
 label {
@@ -181,17 +180,18 @@ label {
   margin-top: 20px;
 }
 
-#submitBottom {
+input[type='submit'] {
   margin-top: 5px;
   font-size: 30px;
-  width: 200px;
+  width: 100%;
   height: 60px;
   border-radius: 5px;
 }
 
-#submitBottom:hover {
+input[type='submit']:hover {
   background-color: #343A40;
   color:#fff;
+  transition: 0.2s;
   
 }
 
@@ -214,8 +214,12 @@ h4 {
   flex-direction: row;
   flex-wrap:wrap;
   justify-content: flex-start;
+  padding: 0;
+  margin-left: 10px;
 
 }
+
+
 
 li {
   width: 500px;
@@ -224,12 +228,38 @@ li {
   border-radius: 5px;
 }
 
+
+
 img {
   width: 100%;
   border-radius: 5px;
 }
 
+input[type='radio'] { 
+  transform: scale(2); 
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  
+  
+}
+
+input[type='text'] { 
+  background-color: #343A40;
+  color: antiquewhite;
+  font-size: larger;
+  
+  
+}
+
+label {
+  font-size: large;
+}
+
 input {
   border: 0;
   border-radius: 5px;
+  text-align: center;
+  height: 40px;
+  
 }
