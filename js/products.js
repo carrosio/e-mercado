@@ -47,9 +47,10 @@ function multi(products){
     document.getElementById("autos").remove()
   }
   showlist(filterAndOrder(products))
+  if (filterAndOrder(products).length < 1) {
+    document.getElementById("main-main").innerHTML = "<h1 center >¡UPS! No encontramos ningun producto con esas caracteristicas</h1>"
+  }
 }
-
-
 
 function showlist(products) {
   const list = document.createElement("ul");
@@ -90,12 +91,10 @@ function showlist(products) {
   
 }
 
-
 document.addEventListener("DOMContentLoaded", async function (e) {
   const products = (await getJSONData(PRODUCTS_URL)).data;
   showlist(products)
   document.getElementById("enviar").onclick = function(){multi(products)}
  
 })
-
-/* function(){showlist(filterAndOrder(products))} */ 
+ 

@@ -48,19 +48,25 @@
         <input type="text" id="maxRange" value="20000" />
 
         <h4 id="orden-filtrado">Ordear por:</h4>
-
-        <input type="radio" value="moda" name="radioOrder" i />
-        <label>Relevancia</label>
-
-        <input value="1" type="radio" name="radioOrder" />
-        <label>Mayor precio</label>
-
-        <input checked type="radio" value="-1" name="radioOrder" />
-        <label>Menor precio</label>
-        <input id="enviar" onclick="pelotudo()" type="submit">>
-              <h4>Búsqueda</h4>
-        <input type="search" id="search" />
-        <input type="submit" value="Buscar" id="searchBar" />
+          
+          <div id="radioContenedor">
+            <div>
+            <input class="op1" checked id="op1" type="radio" value="moda" name="radioOrder" i />
+            <label for="op1">Relevancia</label></div>
+            <div>
+            <input class="op" id="op2" value="1" type="radio" name="radioOrder" />
+            <label for="op2">Mayor precio</label></div>
+            <div>
+            <input class="op3" id="op3" type="radio" value="-1" name="radioOrder" />
+            <label for="op3">Menor precio</label></div>
+          </div>
+          
+          
+          <input id="enviar" onclick="pelotudo()" type="submit">>
+                <h4>Búsqueda</h4>
+          <input type="search" id="search" />
+          <input type="submit" value="Buscar" id="searchBar" />
+        
  
       </div>
     </div>
