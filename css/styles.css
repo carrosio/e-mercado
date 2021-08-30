@@ -160,3 +160,6 @@ a.custom-card:hover {
    font-weight: bold;
 }
 
+.filter {
+  margin: 25px;
+}
