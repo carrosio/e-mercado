@@ -257,13 +257,24 @@ input[type='radio'] {
  
 }
 
+input[type='text']:focus {
+  background-color: #fff;
+  color: #343A40;
+  transition: 0.2s;
+  outline: none;
+  font-style: normal;
+  font-weight: bolder;
+}
 
-
-input[type='text'] { 
+input[type='text'] {
   background-color: #343A40;
-  color: antiquewhite;
-  font-size: larger;
-  
+  color:rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  width: 180px;
+
+
   
 }
 
