@@ -4,8 +4,8 @@ function filterAndOrder(products) {
   let orderBy = Array.from(document.getElementsByName("radioOrder")).find(
     (r) => r.checked
   ).value;
-/*   Orden por precio  
- */ 
+  /*   Orden por precio  
+   */
   let productsFiltred = [];
   for (let x of products) {
     if (x.cost > minRange && x.cost < maxRange) {
@@ -41,7 +41,7 @@ function filterAndOrder(products) {
   return productsFiltred;
 }
 
-function multi(products){
+function multi(products) {
   let padre = document.getElementById("main-main")
   if (padre.childNodes.length > 3) {
     document.getElementById("autos").remove()
@@ -67,33 +67,35 @@ function showlist(products) {
     //aplicar class y src
     product.className = "list-group-item ";
     img.src = x.imgSrc;
-    
+
 
     //dependencias
     name.appendChild(document.createTextNode(x.name));
     price.appendChild(document.createTextNode(x.cost + " USD"));
     desc.appendChild(document.createTextNode(x.description));
-    
+
 
     product.appendChild(img);
     product.appendChild(name);
     product.appendChild(price);
-    
+
     product.appendChild(desc);
-    
+
 
     list.appendChild(product);
   }
 
   //mostrar lista en body
-  
+
   document.getElementById("main-main").appendChild(list)
-  
+
 }
 
 document.addEventListener("DOMContentLoaded", async function (e) {
+  localStorage.getItem("userFunction")
   const products = (await getJSONData(PRODUCTS_URL)).data;
   showlist(filterAndOrder(products))
-  document.getElementById("enviar").onclick = function(){multi(products)}
+  document.getElementById("enviar").onclick = function () {
+    multi(products)
+  }
 })
- 
