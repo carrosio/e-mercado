@@ -6,6 +6,7 @@
     font-weight: bold;
 }
 
+html,body { height:100%; }
 
 .jumbotron {
   height: 50vh;
@@ -169,6 +170,7 @@ a.custom-card:hover {
   background-color:#229FBC;
   padding: 25px;
   color: #fff;
+  height: 
   
 }
 label {
@@ -206,8 +208,12 @@ h4 {
 
 #main-main {
   display: flex;
+  height: 100%
 
 }
+
+
+
 
 .listaBase {
   display: flex;
@@ -226,6 +232,7 @@ li {
   margin: 10px;
   margin-left: 0px;
   border-radius: 5px;
+  height: 450px;
 }
 
 
@@ -240,7 +247,6 @@ input[type='radio'] {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
-  
   
 }
 

@@ -22,7 +22,8 @@ function filterAndOrder(products) {
         return 1;
       }
       return 0;
-    });
+    })
+
   } else {
     /* 1 es equivalente a "prcio mayor" */
     orderBy ? 1 : -1;
@@ -37,12 +38,22 @@ function filterAndOrder(products) {
     });
   }
 
-  console.log(productsFiltred);
   return productsFiltred;
 }
 
+function multi(products){
+  let padre = document.getElementById("main-main")
+  if (padre.childNodes.length > 3) {
+    document.getElementById("autos").remove()
+  }
+  showlist(filterAndOrder(products))
+}
+
+
+
 function showlist(products) {
   const list = document.createElement("ul");
+  list.id = "autos"
   list.className = "listaBase";
   for (let x of products) {
     //variables
@@ -74,11 +85,17 @@ function showlist(products) {
   }
 
   //mostrar lista en body
+  
   document.getElementById("main-main").appendChild(list)
   
 }
 
+
 document.addEventListener("DOMContentLoaded", async function (e) {
   const products = (await getJSONData(PRODUCTS_URL)).data;
-  showlist(filterAndOrder(products));
-});
+  showlist(products)
+  document.getElementById("enviar").onclick = function(){multi(products)}
+ 
+})
+
+/* function(){showlist(filterAndOrder(products))} */ 
