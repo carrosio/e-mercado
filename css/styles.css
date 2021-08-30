@@ -161,5 +161,75 @@ a.custom-card:hover {
 }
 
 .filter {
-  margin: 25px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: fit-content;
+  background-color:#229FBC;
+  padding: 25px;
+  color: #fff;
+  height:  
+  
+}
+label {
+  margin: 5px;
+  margin-left: 0;
+}
+
+#orden-filtrado {
+  margin-top: 20px;
+}
+
+#submitBottom {
+  margin-top: 5px;
+  font-size: 30px;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+#submitBottom:hover {
+  background-color: #343A40;
+  color:#fff;
+  
+}
+
+h4 {
+  margin: 10px;
+  margin-left: 0;
+}
+
+.text-box {
+  border-radius: 5px;
+}
+
+#main-main {
+  display: flex;
+
+}
+
+.listaBase {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+
+}
+
+li {
+  width: 500px;
+  margin: 10px;
+  margin-left: 0px;
+  border-radius: 5px;
+}
+
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+input {
+  border: 0;
+  border-radius: 5px;
 }

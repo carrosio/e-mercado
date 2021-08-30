@@ -39,38 +39,34 @@
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       </div>
     </nav>
-    <div class="filter">
-      <h4>Filtrado por Precios</h4>
-      <label>Precio Mínimo:</label>
-      <br>
-      <input type="text" id="minRange" value="10000" />
-      <br>
-      <label>Precio Máximo:</label>
-      <br>
-      <input type="text" id="maxRange" value="20000" />
+    <div id="main-main">
+      <div id="filter" class="filter py-1">
+        <h4>Filtrar por:</h4>
+        <label >Precio Mínimo:</label>
+        <input class="text-box" type="text" id="minRange" value="10000" />
+        <label>Precio Máximo:</label>
+        <input type="text" id="maxRange" value="16000" />
 
-      <h4>Orden</h4>
-      
-      <input checked type="radio" name="radioOrder" id="" />
-      <label for="">Relevancia</label>
-      <br>
-      
-      <input type="radio" name="radioOrder" />
-      <label for="">Mayor precio</label>
-      <br>
-      
-      <input type="radio" name="radioOrder" />
-      <label for="">Menor precio</label>
-      <br>
-      <input type="submit" value="Filtrar" id="submitBottom" onclick="" />
+        <h4 id="orden-filtrado">Ordear por:</h4>
 
-      <br />
-      <h4>Búsqueda</h4>
-      <input type="search" id="search" />
-      <input type="submit" value="Buscar" id="searchBar" />
+        <input  type="radio" value="moda" name="radioOrder" id="" />
+        <label for="">Relevancia</label>
+
+        <input checked value="1" type="radio" name="radioOrder" />
+        <label for="">Mayor precio</label>
+
+        <input   type="radio" value="-1" name="radioOrder" />
+        <label for="">Menor precio</label>
+        <input  type="submit" value="Filtrar" id="submitBottom" onclick="" />
+
+  <!--       <h4>Búsqueda</h4>
+        <input type="search" id="search" />
+        <input type="submit" value="Buscar" id="searchBar" />
+  -->  </div>
     </div>
 
     <div id="spinner-wrapper">
+      
       <div class="lds-ring">
         <div></div>
         <div></div>

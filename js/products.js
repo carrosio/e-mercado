@@ -1,19 +1,19 @@
 function filterAndOrder(products) {
-  let relevancia = false;
-  let orderByPrice = true;
-  let direction = -1;
   let minRange = document.getElementById("minRange").value;
   let maxRange = document.getElementById("maxRange").value;
-
+  let orderBy = Array.from(document.getElementsByName("radioOrder")).find(
+    (r) => r.checked
+  ).value;
+/*   Orden por precio  
+ */ 
   let productsFiltred = [];
   for (let x of products) {
     if (x.cost > minRange && x.cost < maxRange) {
       productsFiltred.push(x);
     }
-    /* soldCount */
   }
 
-  if (relevancia) {
+  if (orderBy === "moda") {
     productsFiltred.sort(function (a, b) {
       if (a.soldCount > b.soldCount) {
         return -1;
@@ -23,16 +23,15 @@ function filterAndOrder(products) {
       }
       return 0;
     });
-  }
-
-  if (orderByPrice) {
-    direction ? 1 : -1;
+  } else {
+    /* 1 es equivalente a "prcio mayor" */
+    orderBy ? 1 : -1;
     productsFiltred.sort(function (a, b) {
       if (a.cost > b.cost) {
-        return -1 * direction;
+        return -1 * orderBy;
       }
       if (a.cost < b.cost) {
-        return 1 * direction;
+        return 1 * orderBy;
       }
       return 0;
     });
@@ -44,40 +43,42 @@ function filterAndOrder(products) {
 
 function showlist(products) {
   const list = document.createElement("ul");
-  list.className = "list-group-item ";
+  list.className = "listaBase";
   for (let x of products) {
     //variables
     const product = document.createElement("li");
-    const name = document.createElement("h1");
-    const price = document.createElement("h5");
+    const name = document.createElement("h4");
+    const price = document.createElement("h6");
     const desc = document.createElement("p");
     const img = document.createElement("img");
 
     //aplicar class y src
     product.className = "list-group-item ";
     img.src = x.imgSrc;
-    img.className = "list-group-item ";
+    
 
     //dependencias
     name.appendChild(document.createTextNode(x.name));
     price.appendChild(document.createTextNode(x.cost + " USD"));
     desc.appendChild(document.createTextNode(x.description));
-    img.appendChild(document.createTextNode(img));
+    
 
+    product.appendChild(img);
     product.appendChild(name);
     product.appendChild(price);
+    
     product.appendChild(desc);
-    product.appendChild(img);
+    
 
     list.appendChild(product);
   }
 
   //mostrar lista en body
-  document.body.appendChild(list);
+  document.getElementById("main-main").appendChild(list)
+  
 }
 
 document.addEventListener("DOMContentLoaded", async function (e) {
   const products = (await getJSONData(PRODUCTS_URL)).data;
-  let bottom = document.getElementById("submitBottom");
-  bottom.addEventListener("click", showlist(filterAndOrder(products)));
+  showlist(filterAndOrder(products));
 });
