@@ -30,21 +30,29 @@ localStorage.setItem("userFunction", user)
 
 function user(){
   let boxName = document.createElement("div")
+  let boxExit = document.createElement("div")
   let name = document.createElement("p")
+  let exit = document.createElement("div")
+  let exitTxt = document.createTextNode("Exit")
   let ponerName = document.createTextNode(checkName)
   let selectNav = document.getElementById("menu")
   name.setAttribute("id", "nombreUser")
+  exit.setAttribute("id", "userExit")
   
-  boxName.appendChild(name)
+  
   selectNav.appendChild(boxName)
+  selectNav.appendChild(boxExit)
   boxName.appendChild(name)
   name.appendChild(ponerName)
+  boxExit.appendChild(exit)
+  exit.appendChild(exitTxt)
+  
   
   boxName.classList.add("usuario")
+  boxExit.classList.add("usuario")
   name.classList.add("usuarioName")
+  exit.classList.add("usuarioName")
 }
- 
-
 
 
 var getJSONData = function(url){

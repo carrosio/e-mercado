@@ -41,9 +41,33 @@ function filterAndOrder(products) {
   return productsFiltred;
 }
 
+function filterBySearch(products) {
+  let searchBar = document.getElementById("search")
+  let filtredItems = []
+  searchBar.addEventListener("keyup", (e) => {
+    let searchText = e.target.value.toLowerCase()
+    filtredItems = products.filter((item) => {
+      return (
+        item.name.toLowerCase().includes(searchText) ||
+        item.description.toLowerCase().includes(searchText)
+      )
+    })
+    console.log(filtredItems)
+    return filtredItems
+  })
+}
+  
+
+
 function multi(products) {
   let padre = document.getElementById("main-main")
-  if (padre.childNodes.length > 3) {
+  let searchBar = document.getElementById("search")
+  
+  /* $(searchBar).focus(function() {
+    showlist(filterBySearch(products))
+  }) */
+  
+  if (padre.childNodes.length > (products.length - 1)) {
     document.getElementById("autos").remove()
   }
   showlist(filterAndOrder(products))
@@ -95,7 +119,11 @@ document.addEventListener("DOMContentLoaded", async function (e) {
   localStorage.getItem("userFunction")
   const products = (await getJSONData(PRODUCTS_URL)).data;
   showlist(filterAndOrder(products))
+  /* showlist(filterAndOrder(products)) */
+  
   document.getElementById("enviar").onclick = function () {
     multi(products)
   }
+ 
+  
 })

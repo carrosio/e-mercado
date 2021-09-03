@@ -162,6 +162,10 @@ a.custom-card:hover {
   
 }
 
+#menu {
+  display: flex;
+  flex-direction:row;
+}
 
 .usuarioName {
    position: relative; top: 20%;
