@@ -4,7 +4,7 @@ function filterAndOrder(products) {
   let orderBy = Array.from(document.getElementsByName("radioOrder")).find(
     (r) => r.checked
   ).value;
-  /*   Orden por precio  
+  /*   Orden por precio
    */
   let productsFiltred = [];
   for (let x of products) {
@@ -22,8 +22,7 @@ function filterAndOrder(products) {
         return 1;
       }
       return 0;
-    })
-
+    });
   } else {
     /* 1 es equivalente a "prcio mayor" */
     orderBy ? 1 : -1;
@@ -41,44 +40,28 @@ function filterAndOrder(products) {
   return productsFiltred;
 }
 
-function filterBySearch(products) {
-  let searchBar = document.getElementById("search")
-  let filtredItems = []
-  searchBar.addEventListener("keyup", (e) => {
-    let searchText = e.target.value.toLowerCase()
-    filtredItems = products.filter((item) => {
-      return (
-        item.name.toLowerCase().includes(searchText) ||
-        item.description.toLowerCase().includes(searchText)
-      )
-    })
-    console.log(filtredItems)
-    return filtredItems
-  })
+function noneSpace(){
+  let carContainer = document.getElementById("autos")
+  carContainer.remove()
 }
-  
-
 
 function multi(products) {
-  let padre = document.getElementById("main-main")
-  let searchBar = document.getElementById("search")
-  
-  /* $(searchBar).focus(function() {
-    showlist(filterBySearch(products))
-  }) */
-  
-  if (padre.childNodes.length > (products.length - 1)) {
-    document.getElementById("autos").remove()
+  let padre = document.getElementById("main-main");
+
+
+  if (padre.childNodes.length > products.length - 1) {
+    document.getElementById("autos").remove();
   }
-  showlist(filterAndOrder(products))
+  showlist(filterAndOrder(products));
   if (filterAndOrder(products).length < 1) {
-    document.getElementById("main-main").innerHTML = "<h1 center >¡UPS! No encontramos ningun producto con esas caracteristicas</h1>"
+    document.getElementById("main-main").innerHTML =
+      "<h1 center >¡UPS! No encontramos ningun producto con esas caracteristicas</h1>";
   }
 }
 
 function showlist(products) {
   const list = document.createElement("ul");
-  list.id = "autos"
+  list.id = "autos";
   list.className = "listaBase";
   for (let x of products) {
     //variables
@@ -92,12 +75,10 @@ function showlist(products) {
     product.className = "list-group-item ";
     img.src = x.imgSrc;
 
-
     //dependencias
     name.appendChild(document.createTextNode(x.name));
     price.appendChild(document.createTextNode(x.cost + " USD"));
     desc.appendChild(document.createTextNode(x.description));
-
 
     product.appendChild(img);
     product.appendChild(name);
@@ -105,25 +86,41 @@ function showlist(products) {
 
     product.appendChild(desc);
 
-
     list.appendChild(product);
   }
 
   //mostrar lista en body
 
-  document.getElementById("main-main").appendChild(list)
+  document.getElementById("main-main").appendChild(list);
+}
 
+function filterBySearch(products) {
+  let searchBar = document.getElementById("search");
+  let filtredItems = [];
+  searchBar.addEventListener("keyup", (e) => {
+    let searchText = e.target.value.toLowerCase();
+    for (x of products) {
+      
+      if (x.name.toLowerCase().includes(searchText) ||
+      x.description.toLowerCase().includes(searchText)) {
+        filtredItems.push(x)
+      
+      }
+    }
+    noneSpace()
+    console.log(filtredItems)
+    showlist(filtredItems)
+  });
 }
 
 document.addEventListener("DOMContentLoaded", async function (e) {
-  localStorage.getItem("userFunction")
+  localStorage.getItem("userFunction");
   const products = (await getJSONData(PRODUCTS_URL)).data;
-  showlist(filterAndOrder(products))
-  /* showlist(filterAndOrder(products)) */
-  
+  showlist(filterAndOrder(products));
   document.getElementById("enviar").onclick = function () {
-    multi(products)
-  }
- 
-  
-})
+    multi(products);
+  };
+  document.getElementById("search").onkeyup = function () {
+    filterBySearch(products)
+  };
+});
