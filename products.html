@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet" />
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
+  
 </head>
 
 <body>
@@ -27,14 +28,16 @@
   </nav>
   <div id="main-main">
     <div id="filter" class="filter py-1">
-      <h4>Filtrar por:</h4>
+      <br>
+      <input type="search" placeholder="Buscar" id="search" />
       <br />
-      <label>Precio Mínimo:</label>
+      <label>Precio Mínimo</label>
       <input class="text-box" type="text" id="minRange" value="500" />
-      <label>Precio Máximo:</label>
+      <br>
+      <label>Precio Máximo</label>
       <input type="text" id="maxRange" value="20000" />
       <br />
-      <h4 id="orden-filtrado">Ordear por:</h4>
+      
       <div id="radioContenedor">
         <div>
           <input class="op1" checked id="op1" type="radio" value="moda" name="radioOrder" i />
@@ -49,13 +52,10 @@
           <label for="op3">Menor precio</label>
         </div>
       </div>
-      <br />
-
-      <input id="enviar" type="submit" />
+      <input id="enviar" value="Filtrar" type="submit" />
       <br />
       <br />
-      <h4>Búsqueda</h4>
-      <input type="search" id="search" />
+     
     </div>
   </div>
 
@@ -67,6 +67,9 @@
       <div></div>
     </div>
   </div>
+  <span class="material-icons-outlined">
+    account_circle
+  </span>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>

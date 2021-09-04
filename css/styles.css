@@ -162,10 +162,45 @@ a.custom-card:hover {
   
 }
 
-#menu {
-  display: flex;
-  flex-direction:row;
+#search {
+  background-color:#fff;
+  width: 100%;
 }
+
+#search::placeholder {
+  font-size: larger;
+}
+
+
+
+#boxUser {
+  width: max-content;
+  display: flex;
+}
+
+#boxExit {
+  display: flex;
+  position: relative; 
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+}
+
+#boxExit:hover {
+  color: #fff;
+  background-color:deeppink;
+  transition: 0.2s;
+}
+
+#boxExit:active {
+  background: #343A40
+}
+
+#userExit {
+  position: relative; right: -12%;
+}
+
+
 
 .usuarioName {
    position: relative; top: 20%;
@@ -284,10 +319,9 @@ input[type='text'] {
 }
 
 label {
-  font-size: 22px;
+  font-size: 19px;
   font-weight: bold;
-  
-  
+  text-align: center;
 }
 
 input {

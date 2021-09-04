@@ -29,29 +29,46 @@ var hideSpinner = function(){
 localStorage.setItem("userFunction", user)
 
 function user(){
+  let boxUser = document.createElement("div")
   let boxName = document.createElement("div")
   let boxExit = document.createElement("div")
   let name = document.createElement("p")
   let exit = document.createElement("div")
-  let exitTxt = document.createTextNode("Exit")
+  let exitTxt = document.createTextNode("Salir")
   let ponerName = document.createTextNode(checkName)
   let selectNav = document.getElementById("menu")
+  let iconBox = document.createElement("i")
+  let icon = document.createTextNode("account_circle")
+  
+// atributos id
+  boxUser.setAttribute("id", "boxUser")
+  boxExit.setAttribute("id", "boxExit")
+  boxName.setAttribute("id", "boxName")
+  boxUser.setAttribute("id", "boxUser")
   name.setAttribute("id", "nombreUser")
   exit.setAttribute("id", "userExit")
-  
-  
-  selectNav.appendChild(boxName)
-  selectNav.appendChild(boxExit)
+ 
+ // añadir dependencias
+  selectNav.appendChild(boxUser)
+  boxUser.appendChild(boxName)
+  boxUser.appendChild(boxExit)
   boxName.appendChild(name)
   name.appendChild(ponerName)
   boxExit.appendChild(exit)
   exit.appendChild(exitTxt)
   
-  
+// clases
   boxName.classList.add("usuario")
   boxExit.classList.add("usuario")
   name.classList.add("usuarioName")
   exit.classList.add("usuarioName")
+  boxUser.classList.add("usuario")
+
+  // delete localstroage and exit to main
+  boxExit.addEventListener("click", function() {
+    localStorage.removeItem("name")
+    window.location = "index.html"
+  })
 }
 
 
@@ -85,6 +102,5 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
   user()
- 
 });
 

@@ -40,23 +40,21 @@ function filterAndOrder(products) {
   return productsFiltred;
 }
 
+
+//remueve los autos anteriores a la busqueda
 function noneSpace(){
   let carContainer = document.getElementById("autos")
   carContainer.remove()
 }
 
 function multi(products) {
+  //si la cantidad de autos es mayor a 4, 
+  //elimina los anteriores para que no se repitan infitiamente
   let padre = document.getElementById("main-main");
-
-
   if (padre.childNodes.length > products.length - 1) {
     document.getElementById("autos").remove();
   }
   showlist(filterAndOrder(products));
-  if (filterAndOrder(products).length < 1) {
-    document.getElementById("main-main").innerHTML =
-      "<h1 center >¡UPS! No encontramos ningun producto con esas caracteristicas</h1>";
-  }
 }
 
 function showlist(products) {
@@ -121,6 +119,6 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     multi(products);
   };
   document.getElementById("search").onkeyup = function () {
-    filterBySearch(products)
+    filterBySearch(filterAndOrder(products))
   };
 });
