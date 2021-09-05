@@ -40,7 +40,6 @@ function filterAndOrder(products) {
   return productsFiltred;
 }
 
-
 //remueve los autos anteriores a la busqueda
 function noneSpace(){
   let carContainer = document.getElementById("autos")
@@ -57,12 +56,17 @@ function multi(products) {
   showlist(filterAndOrder(products));
 }
 
+
+
+let nameItem 
+
 function showlist(products) {
   const list = document.createElement("ul");
   list.id = "autos";
   list.className = "listaBase";
   for (let x of products) {
     //variables
+    
     const product = document.createElement("li");
     const name = document.createElement("h4");
     const price = document.createElement("h6");
@@ -71,6 +75,7 @@ function showlist(products) {
 
     //aplicar class y src
     product.className = "list-group-item ";
+    product.setAttribute("name", "item")
     img.src = x.imgSrc;
 
     //dependencias
@@ -85,6 +90,16 @@ function showlist(products) {
     product.appendChild(desc);
 
     list.appendChild(product);
+
+    function toInfo() {
+      let name = x.name
+      localStorage.setItem("nameItem", name)
+      window.location = "product-info.html"
+      
+    }
+
+    // clickeable 
+    product.addEventListener("click", toInfo)
   }
 
   //mostrar lista en body
@@ -92,17 +107,27 @@ function showlist(products) {
   document.getElementById("main-main").appendChild(list);
 }
 
+function toProductInfo(name) {
+  console.log(name)
+  window.location = "product-info.html"
+}
+
+
+
+
 function filterBySearch(products) {
+ 
   let searchBar = document.getElementById("search");
   let filtredItems = [];
   searchBar.addEventListener("keyup", (e) => {
     let searchText = e.target.value.toLowerCase();
     for (x of products) {
       
-      if (x.name.toLowerCase().includes(searchText) ||
-      x.description.toLowerCase().includes(searchText)) {
+      if (
+        x.name.toLowerCase().includes(searchText) ||
+        x.description.toLowerCase().includes(searchText)
+        ){
         filtredItems.push(x)
-      
       }
     }
     noneSpace()

@@ -1,42 +1,14 @@
-const charactersList = document.getElementById('charactersList');
-const searchBar = document.getElementById('searchBar');
-let hpCharacters = [];
 
-searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value.toLowerCase();
+Realizar una petición web a una URL con un identificador del producto donde se encuentra toda la información detallada del mismo.
+Toda la información se deberá desplegar en HTML.
 
-    const filteredCharacters = hpCharacters.filter((character) => {
-        return (
-            character.name.toLowerCase().includes(searchString) ||
-            character.house.toLowerCase().includes(searchString)
-        );
-    });
-    displayCharacters(filteredCharacters);
-});
+Realizar una petición web a una URL donde ya se encuentran los comentarios y puntuación precargados del producto del punto anterior.
+Mostrar en HTML la información.
 
-const loadCharacters = async () => {
-    try {
-        const res = await fetch('https://hp-api.herokuapp.com/api/characters');
-        hpCharacters = await res.json();
-        displayCharacters(hpCharacters);
-    } catch (err) {
-        console.error(err);
-    }
-};
 
-const displayCharacters = (characters) => {
-    const htmlString = characters
-        .map((character) => {
-            return `
-            <li class="character">
-                <h2>${character.name}</h2>
-                <p>House: ${character.house}</p>
-                <img src="${character.image}"></img>
-            </li>
-        `;
-        })
-        .join('');
-    charactersList.innerHTML = htmlString;
-};
+Agregar los controles gràficos necesarios para poder realizar un nuevo comentario y puntuación.
+El envío de datos será ficticio, es decir que no se implementará el envío de los mismos.
 
-loadCharacters();
+
+Desafiate
+Si bien el comentario ingresado no será enviado a ningún servidor, cuando se simule el envío del mismo, intenta agregarlo cómo un comentario más de los mostrados referente al producto.

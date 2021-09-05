@@ -187,6 +187,8 @@ a.custom-card:hover {
 
 }
 
+
+
 #boxExit:hover {
   color: #fff;
   background-color:deeppink;
@@ -259,7 +261,18 @@ h4 {
 
 }
 
+#infoCont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
+.showImgaes {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  
+}
 
 
 .listaBase {
@@ -272,14 +285,19 @@ h4 {
 
 }
 
+li:hover {
+  background-color:#343A40;
+  color:#fff;
+  transition: 0.2s;
 
+}
 
 li {
-  width: 500px;
+  width: 400px;
   margin: 10px;
   margin-left: 0px;
   border-radius: 5px;
-  height: 450px;
+  height: 400px;
 }
 
 

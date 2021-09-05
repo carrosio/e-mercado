@@ -37,8 +37,6 @@ function user(){
   let exitTxt = document.createTextNode("Salir")
   let ponerName = document.createTextNode(checkName)
   let selectNav = document.getElementById("menu")
-  let iconBox = document.createElement("i")
-  let icon = document.createTextNode("account_circle")
   
 // atributos id
   boxUser.setAttribute("id", "boxUser")
@@ -74,7 +72,7 @@ function user(){
 
 var getJSONData = function(url){
     var result = {};
-    showSpinner();
+    /* showSpinner(); */
     return fetch(url)
     .then(response => {
       if (response.ok) {
@@ -86,13 +84,13 @@ var getJSONData = function(url){
     .then(function(response) {
           result.status = 'ok';
           result.data = response;
-          hideSpinner();
+          /* hideSpinner(); */
           return result;
     })
     .catch(function(error) {
         result.status = 'error';
         result.data = error;
-        hideSpinner();
+        /* hideSpinner(); */
         return result;
     });
 }
