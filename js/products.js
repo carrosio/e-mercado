@@ -36,7 +36,6 @@ function filterAndOrder(products) {
       return 0;
     });
   }
-
   return productsFiltred;
 }
 
@@ -49,16 +48,9 @@ function noneSpace(){
 function multi(products) {
   //si la cantidad de autos es mayor a 4, 
   //elimina los anteriores para que no se repitan infitiamente
-  let padre = document.getElementById("main-main");
-  if (padre.childNodes.length > products.length - 1) {
-    document.getElementById("autos").remove();
-  }
+  noneSpace()
   showlist(filterAndOrder(products));
 }
-
-
-
-let nameItem 
 
 function showlist(products) {
   const list = document.createElement("ul");
@@ -95,7 +87,6 @@ function showlist(products) {
       let name = x.name
       localStorage.setItem("nameItem", name)
       window.location = "product-info.html"
-      
     }
 
     // clickeable 
@@ -107,22 +98,12 @@ function showlist(products) {
   document.getElementById("main-main").appendChild(list);
 }
 
-function toProductInfo(name) {
-  console.log(name)
-  window.location = "product-info.html"
-}
-
-
-
-
 function filterBySearch(products) {
- 
   let searchBar = document.getElementById("search");
   let filtredItems = [];
   searchBar.addEventListener("keyup", (e) => {
     let searchText = e.target.value.toLowerCase();
     for (x of products) {
-      
       if (
         x.name.toLowerCase().includes(searchText) ||
         x.description.toLowerCase().includes(searchText)
@@ -131,7 +112,6 @@ function filterBySearch(products) {
       }
     }
     noneSpace()
-    console.log(filtredItems)
     showlist(filtredItems)
   });
 }

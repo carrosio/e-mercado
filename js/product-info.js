@@ -17,17 +17,20 @@ function itemInfoHTML(items){
     const soldCount = document.createElement("p")
     const category = document.createElement("p")
 
-
     imageCont.className = ("showImgaes")
-    
+    desc.className = ("descriptionItem")
+    soldCount.className = ("soldCount")
+    price.className = ("price")
+    name.className = ("titleItem")
+
     category.appendChild(document.createTextNode("Categoria:" + " " + items.category))
     desc.appendChild(document.createTextNode(items.description))
     name.appendChild(document.createTextNode(items.name))
     price.appendChild(document.createTextNode(items.cost + " " + items.currency))
     soldCount.appendChild(document.createTextNode("Vendidos:" + " " + items.soldCount))
     
-    infoCont.appendChild(name)
     infoCont.appendChild(category)
+    infoCont.appendChild(name)
     infoCont.appendChild(imageCont)
     infoCont.appendChild(desc)
     infoCont.appendChild(price)
@@ -38,14 +41,10 @@ function itemInfoHTML(items){
         img.src = x
         imageCont.appendChild(img)
     }
-
-    
-    
-   
 }
 
 function itemComment(coments){
-    
+
 }
 
 

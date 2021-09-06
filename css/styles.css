@@ -184,9 +184,7 @@ a.custom-card:hover {
   position: relative; 
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-
 }
-
 
 
 #boxExit:hover {
@@ -263,15 +261,53 @@ h4 {
 
 #infoCont {
   display: flex;
+  margin: auto;
   flex-direction: column;
   width: 100%;
+  background-color: #343A40;
+  color: #fff;
+  padding: 100px;
+}
+
+.soldCount {
+  font-size: 20px;
+  margin: 10px;
+  margin-left: 0px;
+}
+
+.titleItem {
+  font-size: 60px;
+  padding: ;
+}
+
+.price {
+  font-size: 50px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #FF1493;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.descriptionItem {
+  padding: 10px;
+  padding-left: 5px;
+  font-size: large;
+  width: 800px;
+  font-style: italic;
 }
 
 .showImgaes {
   display: flex;
   flex-direction: row;
   width: 300px;
-  
+}
+
+.showImgaes > img {
+  border-radius: 0;
+  padding: 5px;
 }
 
 
@@ -282,14 +318,12 @@ h4 {
   justify-content: flex-start;
   padding: 0;
   margin-left: 10px;
-
 }
 
 li:hover {
   background-color:#343A40;
   color:#fff;
   transition: 0.2s;
-
 }
 
 li {
@@ -299,8 +333,6 @@ li {
   border-radius: 5px;
   height: 400px;
 }
-
-
 
 img {
   width: 100%;
@@ -331,8 +363,6 @@ input[type='text'] {
   text-align: center;
   width: 180px;
 
-
-  
 }
 
 label {
