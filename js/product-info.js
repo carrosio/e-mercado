@@ -42,7 +42,6 @@ function itemInfoHTML(items){
         imageCont.appendChild(img)
     }
 }
-
 function itemComment(coments){
 
 }
