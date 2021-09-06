@@ -365,10 +365,14 @@ input[type='text'] {
 
 }
 
+.textAreaComment {
+  width: 850px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 
 .prendida {
   color:#229FBC;
-
 }
 
 .apagada {
@@ -379,8 +383,8 @@ input[type='text'] {
   position: relative; right: 55px;
   display: flex;
   flex-direction: column;
-  
 }
+
 #comentBox {
   background-color: #fff;
   margin: 10px;

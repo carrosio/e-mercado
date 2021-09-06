@@ -48,10 +48,18 @@ function itemComment(coments){
     const title = document.createElement("h2")
     const titletxt = document.createTextNode("Comentarios")
     const infoCont = document.getElementById("infoCont")
-    infoCont.appendChild(ListContainer)
+    const commentBox = document.createElement("div")
+    const infoCount = document.getElementById("infoCont")
+    const commentInput = document.createElement("textarea")
+    
     ListContainer.setAttribute("id", "listContainerComments")
     ListContainer.appendChild(title)
+    infoCont.appendChild(ListContainer)
     title.appendChild(titletxt)
+    infoCount.appendChild(commentInput)
+    
+    commentInput.setAttribute("class", "textAreaComment")
+    
     for (x of coments) {
         const commentGeneral = document.createElement("li")
         const nameComent = document.createElement("h6")
@@ -63,13 +71,12 @@ function itemComment(coments){
         const scoreBox = document.createElement("div")
         const score = x.score
 
-        
         ListContainer.appendChild(commentGeneral)
         commentGeneral.appendChild(nameComent)
         commentGeneral.appendChild(dateComent)
         commentGeneral.appendChild(txtComent)
         commentGeneral.appendChild(scoreBox)
-        
+    
         nameComent.appendChild(name)
         txtComent.appendChild(txt)
         dateComent.appendChild(date)
