@@ -1,10 +1,11 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-function showItem(items) {
+function showItem(items, comments) {
     let itemName = localStorage.getItem("nameItem")
     if (itemName.includes(items.name)) {
         itemInfoHTML(items)
+        itemComment(comments)
     }
 }
 
@@ -43,13 +44,56 @@ function itemInfoHTML(items){
     }
 }
 function itemComment(coments){
+    const ListContainer = document.createElement("ul")
+    const title = document.createElement("h2")
+    const titletxt = document.createTextNode("Comentarios")
+    const infoCont = document.getElementById("infoCont")
+    infoCont.appendChild(ListContainer)
+    ListContainer.setAttribute("id", "listContainerComments")
+    ListContainer.appendChild(title)
+    title.appendChild(titletxt)
+    for (x of coments) {
+        const commentGeneral = document.createElement("li")
+        const nameComent = document.createElement("h6")
+        const name = document.createTextNode(x.user)
+        const dateComent = document.createElement("p")
+        const date = document.createTextNode(x.dateTime)
+        const txtComent = document.createElement("h5")
+        const txt = document.createTextNode(x.description)
+        const scoreBox = document.createElement("div")
+        const score = x.score
 
+        
+        ListContainer.appendChild(commentGeneral)
+        commentGeneral.appendChild(nameComent)
+        commentGeneral.appendChild(dateComent)
+        commentGeneral.appendChild(txtComent)
+        commentGeneral.appendChild(scoreBox)
+        
+        nameComent.appendChild(name)
+        txtComent.appendChild(txt)
+        dateComent.appendChild(date)
+        
+        scoreBox.innerHTML = `<span class=" prendida fa-lg fa fa-star checked"></span>`.repeat(score) + `<span class="apagada fa-lg fa fa-star"></span>`.repeat(5 - score)
+        
+        /* for (let i=1; i <= score; i++) {
+            scoreBox.innerHTML = `<span class="fa fa-star checked"></span>`
+        } */
+        
+        /* for (let i = 1; i <= score; i++) {
+             commentGeneral.innerHTML = `<span class="fa fa-star checked"></span>`
+        } */
+        commentGeneral.setAttribute("id", "comentBox")
+    }
 }
+
 
 
 document.addEventListener("DOMContentLoaded",  async function(e){
     const info_car = ( await getJSONData(PRODUCT_INFO_URL)).data
     const coments = ( await getJSONData(PRODUCT_INFO_COMMENTS_URL)).data
     console.log(info_car)
-    showItem(info_car)
+    showItem(info_car, coments)
+    
+        
 });

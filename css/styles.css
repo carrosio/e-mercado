@@ -320,13 +320,13 @@ h4 {
   margin-left: 10px;
 }
 
-li:hover {
+#listItemsProducts:hover {
   background-color:#343A40;
   color:#fff;
   transition: 0.2s;
 }
 
-li {
+#listItemsProducts {
   width: 400px;
   margin: 10px;
   margin-left: 0px;
@@ -365,6 +365,30 @@ input[type='text'] {
 
 }
 
+
+.prendida {
+  color:#229FBC;
+
+}
+
+.apagada {
+  color: #343A40;
+}
+
+#listContainerComments {
+  position: relative; right: 55px;
+  display: flex;
+  flex-direction: column;
+  
+}
+#comentBox {
+  background-color: #fff;
+  margin: 10px;
+  
+  border-radius: 5px;
+  color: #343A40;
+  padding: 20px;
+}
 label {
   font-size: 19px;
   font-weight: bold;

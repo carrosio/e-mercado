@@ -69,6 +69,7 @@ function showlist(products) {
     product.className = "list-group-item ";
     product.setAttribute("name", "item")
     img.src = x.imgSrc;
+    product.setAttribute("id", "listItemsProducts")
 
     //dependencias
     name.appendChild(document.createTextNode(x.name));
