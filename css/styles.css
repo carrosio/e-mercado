@@ -251,6 +251,11 @@ h4 {
 
 .text-box {
   border-radius: 5px;
+  resize: none;
+}
+
+#buttomcomentSend {
+  width: 10px;
 }
 
 #main-main {
@@ -280,15 +285,24 @@ h4 {
   font-weight: bolder;
 }
 
+
+
+ul > h2 {
+  margin-top: 100px;
+  margin-left: 10px;
+  font-size: 40px;
+}
+
 .price {
-  font-size: 50px;
-  background-color: #fff;
+  font-size: 35px;
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
   color: #FF1493;
-  padding: 5px;
-  width: 300px;
+  padding: 15px;
+  width: max-content;
   text-align: center;
   font-weight: bolder;
+  position: relative;
 }
 
 .descriptionItem {
@@ -300,9 +314,11 @@ h4 {
 }
 
 .showImgaes {
-  display: flex;
-  flex-direction: row;
-  width: 300px;
+  display:flex;
+
+  
+  width: 250px;
+  
 }
 
 .showImgaes > img {
@@ -365,10 +381,14 @@ input[type='text'] {
 
 }
 
+
+
 .textAreaComment {
-  width: 850px;
+  background-color: #fff;
   border-radius: 5px;
-  margin-top: 20px;
+  color: #343A40;
+  padding: 20px;
+  width: 60%;
 }
 
 .prendida {
@@ -380,18 +400,20 @@ input[type='text'] {
 }
 
 #listContainerComments {
-  position: relative; right: 55px;
+  position: relative; right: 
   display: flex;
   flex-direction: column;
+  position: relative; right: 50px;
 }
 
 #comentBox {
   background-color: #fff;
   margin: 10px;
-  
   border-radius: 5px;
   color: #343A40;
-  padding: 20px;
+  padding: 10px;
+  width: 1000px;
+  
 }
 label {
   font-size: 19px;

@@ -17,25 +17,32 @@ function itemInfoHTML(items){
     const price = document.createElement("h6");
     const soldCount = document.createElement("p")
     const category = document.createElement("p")
+    /* const buyItem = document.createElement("submit") */
+
 
     imageCont.className = ("showImgaes")
     desc.className = ("descriptionItem")
     soldCount.className = ("soldCount")
     price.className = ("price")
     name.className = ("titleItem")
+    /* buyItem.className = ("price buttom-buy") */
 
     category.appendChild(document.createTextNode("Categoria:" + " " + items.category))
     desc.appendChild(document.createTextNode(items.description))
     name.appendChild(document.createTextNode(items.name))
     price.appendChild(document.createTextNode(items.cost + " " + items.currency))
     soldCount.appendChild(document.createTextNode("Vendidos:" + " " + items.soldCount))
+    /* buyItem.appendChild(document.createTextNode("Comprar")) */
     
     infoCont.appendChild(category)
     infoCont.appendChild(name)
     infoCont.appendChild(imageCont)
     infoCont.appendChild(desc)
     infoCont.appendChild(price)
-    infoCont.appendChild(soldCount)
+/*     infoCont.appendChild(buyItem)
+ */    infoCont.appendChild(soldCount)
+    
+    
     
     for (x of items.images) {
         let img = document.createElement("img")
@@ -45,20 +52,33 @@ function itemInfoHTML(items){
 }
 function itemComment(coments){
     const ListContainer = document.createElement("ul")
+    const ownComment = document.createElement("h2")
+    const commentTitleOwn = document.createTextNode("Escribir un comentario...")
     const title = document.createElement("h2")
     const titletxt = document.createTextNode("Comentarios")
     const infoCont = document.getElementById("infoCont")
     const commentBox = document.createElement("div")
     const infoCount = document.getElementById("infoCont")
     const commentInput = document.createElement("textarea")
+    const sendBottom = document.createElement("input")
     
-    ListContainer.setAttribute("id", "listContainerComments")
+    sendBottom.setAttribute("type", "submit")
+    sendBottom.setAttribute("class", "buttomcomentSend")
+
+    
     ListContainer.appendChild(title)
+    ListContainer.setAttribute("id", "listContainerComments")
+    commentInput.setAttribute("class", "textAreaComment")
+    ownComment.setAttribute("id", "title-comment")
     infoCont.appendChild(ListContainer)
     title.appendChild(titletxt)
+    infoCont.appendChild(ownComment)
     infoCount.appendChild(commentInput)
+    ownComment.appendChild(commentTitleOwn)
+    infoCont.appendChild(sendBottom)
     
-    commentInput.setAttribute("class", "textAreaComment")
+    
+    
     
     for (x of coments) {
         const commentGeneral = document.createElement("li")
@@ -82,14 +102,6 @@ function itemComment(coments){
         dateComent.appendChild(date)
         
         scoreBox.innerHTML = `<span class=" prendida fa-lg fa fa-star checked"></span>`.repeat(score) + `<span class="apagada fa-lg fa fa-star"></span>`.repeat(5 - score)
-        
-        /* for (let i=1; i <= score; i++) {
-            scoreBox.innerHTML = `<span class="fa fa-star checked"></span>`
-        } */
-        
-        /* for (let i = 1; i <= score; i++) {
-             commentGeneral.innerHTML = `<span class="fa fa-star checked"></span>`
-        } */
         commentGeneral.setAttribute("id", "comentBox")
     }
 }
