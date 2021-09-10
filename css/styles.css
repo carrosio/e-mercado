@@ -144,7 +144,7 @@ a.custom-card:hover {
 
 .usuario {
   background-color: azure;
-  
+
   border-radius: 5px;
   max-width: fit-content;
   min-width: 100px;
@@ -228,7 +228,7 @@ a.custom-card:hover {
 }
 
 
-input[type='submit'] {
+#enviar {
   margin-top: 5px;
   font-size: 30px;
   width: 100%;
@@ -236,11 +236,16 @@ input[type='submit'] {
   border-radius: 5px;
 }
 
-input[type='submit']:hover {
+#enviar:hover {
   background-color: #343A40;
   color:#fff;
   transition: 0.2s;
-  
+}
+
+.buttomcomentSend {
+  width: 100px;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 h4 {
@@ -285,8 +290,6 @@ h4 {
   font-weight: bolder;
 }
 
-
-
 ul > h2 {
   margin-top: 100px;
   margin-left: 10px;
@@ -326,6 +329,9 @@ ul > h2 {
   padding: 5px;
 }
 
+#listContainerComments {
+  margin-left: -50px;
+}
 
 .listaBase {
   display: flex;
@@ -378,10 +384,7 @@ input[type='text'] {
   font-style: italic;
   text-align: center;
   width: 180px;
-
 }
-
-
 
 .textAreaComment {
   background-color: #fff;
@@ -397,13 +400,6 @@ input[type='text'] {
 
 .apagada {
   color: #343A40;
-}
-
-#listContainerComments {
-  position: relative; right: 
-  display: flex;
-  flex-direction: column;
-  position: relative; right: 50px;
 }
 
 #comentBox {
@@ -428,3 +424,47 @@ input {
   height: 40px;
   
 }
+/* 
+EMPEZAR BIEN */
+
+.areaBox {
+  width: 500px;
+  height: 200px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+
+.txtArea {
+  border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none; 
+border-radius: 5px;
+
+}
+
+.commentTxt {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 480px;
+  height: 100px;
+  background-color: #343A40;
+  color: whitesmoke;
+  padding: 10px;
+}
+
+.sendbuttom {
+  border: 0;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+  background-color: #229FBC;
+  color: whitesmoke;
+}
+#commentScore {
+  color: #343A40;
+}
+

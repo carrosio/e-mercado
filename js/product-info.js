@@ -5,114 +5,98 @@ function showItem(items, comments) {
     let itemName = localStorage.getItem("nameItem")
     if (itemName.includes(items.name)) {
         itemInfoHTML(items)
-        itemComment(comments)
+        newComentBox()
+        showComments(comments, createComment())
+        document.getElementById("submitComment").onclick = function(){showComments(comments, createComment())
+       
+        }
+        
     }
 }
 
 function itemInfoHTML(items){
-    const name = document.createElement("h4")
-    const imageCont = document.createElement("div")
+    console.log(items)
     const infoCont = document.getElementById("infoCont")
-    const desc = document.createElement("p");
-    const price = document.createElement("h6");
-    const soldCount = document.createElement("p")
-    const category = document.createElement("p")
-    /* const buyItem = document.createElement("submit") */
-
-
-    imageCont.className = ("showImgaes")
-    desc.className = ("descriptionItem")
-    soldCount.className = ("soldCount")
-    price.className = ("price")
-    name.className = ("titleItem")
-    /* buyItem.className = ("price buttom-buy") */
-
-    category.appendChild(document.createTextNode("Categoria:" + " " + items.category))
-    desc.appendChild(document.createTextNode(items.description))
-    name.appendChild(document.createTextNode(items.name))
-    price.appendChild(document.createTextNode(items.cost + " " + items.currency))
-    soldCount.appendChild(document.createTextNode("Vendidos:" + " " + items.soldCount))
-    /* buyItem.appendChild(document.createTextNode("Comprar")) */
-    
-    infoCont.appendChild(category)
-    infoCont.appendChild(name)
-    infoCont.appendChild(imageCont)
-    infoCont.appendChild(desc)
-    infoCont.appendChild(price)
-/*     infoCont.appendChild(buyItem)
- */    infoCont.appendChild(soldCount)
-    
-    
-    
+    infoCont.innerHTML = 
+    '<p>' + "Categoría: " + items.category + '</p>' + 
+    '<h4 id="imageItemBox" class="titleItem">' + items.name + '</h4>' +
+    '<div class="showImgaes"></div>' +
+    '<p class="descriptionItem">' + items.description + '</p>' +
+    '<h6 id= "priceResalted" class="resalted">' + items.cost + '</h6>' +
+    '<p>' + "Vendidos: " + items.soldCount +' </p>'
+   /*  
     for (x of items.images) {
         let img = document.createElement("img")
         img.src = x
         imageCont.appendChild(img)
-    }
+    } */
 }
-function itemComment(coments){
+
+
+
+function showComments(coments, newComent){
+    let arrComents = coments
+    arrComents.push(newComent)
     const ListContainer = document.createElement("ul")
-    const ownComment = document.createElement("h2")
-    const commentTitleOwn = document.createTextNode("Escribir un comentario...")
     const title = document.createElement("h2")
     const titletxt = document.createTextNode("Comentarios")
     const infoCont = document.getElementById("infoCont")
-    const commentBox = document.createElement("div")
-    const infoCount = document.getElementById("infoCont")
-    const commentInput = document.createElement("textarea")
-    const sendBottom = document.createElement("input")
-    
-    sendBottom.setAttribute("type", "submit")
-    sendBottom.setAttribute("class", "buttomcomentSend")
-
-    
-    ListContainer.appendChild(title)
+    const comentBox = document.createElement("div")
+    comentBox.setAttribute = ("id", "commentBoxDiv")
+   
     ListContainer.setAttribute("id", "listContainerComments")
-    commentInput.setAttribute("class", "textAreaComment")
-    ownComment.setAttribute("id", "title-comment")
+    ListContainer.appendChild(title)
     infoCont.appendChild(ListContainer)
     title.appendChild(titletxt)
-    infoCont.appendChild(ownComment)
-    infoCount.appendChild(commentInput)
-    ownComment.appendChild(commentTitleOwn)
-    infoCont.appendChild(sendBottom)
+    infoCont.appendChild(comentBox)
+ 
     
-    
-    
-    
-    for (x of coments) {
-        const commentGeneral = document.createElement("li")
-        const nameComent = document.createElement("h6")
-        const name = document.createTextNode(x.user)
-        const dateComent = document.createElement("p")
-        const date = document.createTextNode(x.dateTime)
-        const txtComent = document.createElement("h5")
-        const txt = document.createTextNode(x.description)
-        const scoreBox = document.createElement("div")
-        const score = x.score
-
-        ListContainer.appendChild(commentGeneral)
-        commentGeneral.appendChild(nameComent)
-        commentGeneral.appendChild(dateComent)
-        commentGeneral.appendChild(txtComent)
-        commentGeneral.appendChild(scoreBox)
-    
-        nameComent.appendChild(name)
-        txtComent.appendChild(txt)
-        dateComent.appendChild(date)
-        
-        scoreBox.innerHTML = `<span class=" prendida fa-lg fa fa-star checked"></span>`.repeat(score) + `<span class="apagada fa-lg fa fa-star"></span>`.repeat(5 - score)
-        commentGeneral.setAttribute("id", "comentBox")
+    for (x of arrComents) {
+        const comentNew = document.createElement("li")
+        comentNew.setAttribute("id", "comentBox")
+        ListContainer.appendChild(comentNew)
+        comentNew.innerHTML = 
+        '<h6 id="UserCommentName">'+ x.user + '</h6>' +
+        '<p>' + x.dateTime +'</p>' + 
+        '<h5>'+ x.description  +'</h5>' + 
+         '<span class=" prendida fa-lg fa fa-star checked"></span>'.repeat(x.score) + '<span class="apagada fa-lg fa fa-star"></span>'.repeat(5 - x.score) 
     }
 }
 
+function newComentBox(){
+    const infoCount = document.getElementById("infoCont")
+    const comentBox = document.createElement("div")
+    infoCount.appendChild(comentBox)
+    comentBox.innerHTML = '<div id="commentBox" class="areaBox">' +
+    '<textarea placeholder="Dejanos tu comentario..." id= "commentTxt" class=" txtArea commentTxt">' + '</textarea>' + 
+    '<h5 id="commentScore">' + "Score" + '</h5>' + 
+    '<select name="assingRankingComment">' +
+        '<option value="str1">' + 1 + '</option>' + 
+        '<option value="str2">' + 2 + '</option>' + 
+        '<option value="str3">' + 3 + '</option>' + 
+        '<option value="str4">' + 4 + '</option>' + 
+        '<option value="str5">' + 5 + '</option>' + 
+    '</select>' + 
+    '<button id="submitComment" class= "sendbuttom" type="submit">' + "Enviar" + '</button>' + 
+    '</div>'
+}
 
+
+function createComment()
+    {
+    const desc = document.getElementById("commentTxt").value
+    let newComent = {
+    "score": 4,
+    "description": desc,
+    "user": "macri",
+    "dateTime": "2020-02-25 18:03:52",
+    }
+    return newComent
+
+}
 
 document.addEventListener("DOMContentLoaded",  async function(e){
     const info_car = ( await getJSONData(PRODUCT_INFO_URL)).data
     const coments = ( await getJSONData(PRODUCT_INFO_COMMENTS_URL)).data
-    console.log(info_car)
     showItem(info_car, coments)
-    
-        
 });
