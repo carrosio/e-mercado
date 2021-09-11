@@ -402,13 +402,13 @@ input[type='text'] {
   color: #343A40;
 }
 
-#comentBox {
+#listComment {
   background-color: #fff;
   margin: 10px;
   border-radius: 5px;
   color: #343A40;
   padding: 10px;
-  width: 1000px;
+  width: 50%;
   
 }
 label {
@@ -428,8 +428,10 @@ input {
 EMPEZAR BIEN */
 
 .areaBox {
-  width: 500px;
-  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  height: max-content;
   background-color: whitesmoke;
   border-radius: 5px;
 }
@@ -449,22 +451,55 @@ border-radius: 5px;
 .commentTxt {
   margin-top: 10px;
   margin-left: 10px;
-  width: 480px;
-  height: 100px;
+  width: 580px;
+  min-height: 108px;
   background-color: #343A40;
   color: whitesmoke;
   padding: 10px;
 }
+#boxSelect {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
 
-.sendbuttom {
+#submitComment {
+  font-size: larger;
+  font-weight: bolder;
   border: 0;
   border-radius: 5px;
-  width: 100px;
-  height: 50px;
+  width: 200px;
+  height: 65px;
   background-color: #229FBC;
   color: whitesmoke;
+  position: relative; left: 330px; top: 15px;
 }
+.imageset {
+  display: flex;
+  flex-direction: row;
+  max-width: 30%;
+}
+
+
+#img-main{
+  display: flex;
+  width: 40%;
+  
+}
+
 #commentScore {
   color: #343A40;
+}
+
+
+
+#rankStrars {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  appearance: none;
+  margin-bottom: 10px;
+  
 }
 
