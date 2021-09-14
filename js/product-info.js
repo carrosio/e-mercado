@@ -21,7 +21,7 @@ function showItemProfile(item) {
     category.innerHTML = 'Categoria: ' + item.category
     nameItem.innerHTML = item.name
     desc.innerHTML = item.description
-    price.innerHTML = item.currency  + ' ' + item.cost
+    price.innerHTML = item.currency  + ' ' + item.cost + ' ' + '<i class="fas fa-tag"></i>'
     sold.innerHTML = 'Ventas: ' +  item.soldCount
    
 
@@ -55,7 +55,7 @@ function showItemProfile(item) {
 function newComment(){
     const today = new Date()
     const date = today.getFullYear() + '-' + (today.getMonth()+1)+ '-' + today.getDay()
-    
+
     const commentTxt = document.getElementById("commentTxt").value
     const commentUsr =  document.getElementById("nombreUser").textContent
     /* const selectedScore = document.getElementsByName("rankStrars") */
@@ -80,8 +80,8 @@ function generateComentList(comments) {
          comentNew.setAttribute("name", "EveryComment")
          listContainerComments.appendChild(comentNew)
          comentNew.innerHTML = 
-         '<h6 class="UserCommentName" id="UserCommentName">'+ x.user + '</h6>' +
-         '<p>' + x.dateTime +'</p>' + 
+         '<h6 class="UserCommentName" id="UserCommentName">' + '<i class="fas fa-user"></i> ' + '' + x.user + '</h6>' +
+         '<p class="commentdate">' + '<i class="fas fa-calendar-day"></i> ' + x.dateTime +'</p>' + 
          '<h5>'+ x.description  +'</h5>' + 
           '<span class=" prendida fa-lg fa fa-star checked"></span>'.repeat(x.score) + '<span class="apagada fa-lg fa fa-star"></span>'.repeat(5 - x.score) 
      }
@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded",  async function(e){
         arr()
         deleteComents()
         generateComentList(arrComents)
+        document.getElementById("commentTxt").value = ''
     }
 
 
