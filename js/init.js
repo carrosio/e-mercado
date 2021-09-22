@@ -30,7 +30,11 @@ localStorage.setItem("userFunction", user)
 
 function user(){
   let boxUser = document.createElement("div")
-  let boxName = document.createElement("div")
+  let boxName = document.createElement("button")
+  let dropDown = document.createElement("div")
+  let myCarrito = document.createElement("a")
+  let myProfile = document.createElement("a")
+  let myExit = document.createElement("a")
   let boxExit = document.createElement("div")
   let name = document.createElement("p")
   let exit = document.createElement("div")
@@ -40,16 +44,23 @@ function user(){
   
 // atributos id
   boxUser.setAttribute("id", "boxUser")
+  dropDown.setAttribute("id", "dropDown")
+  myCarrito.setAttribute("id", "mYcarrito")
+  myProfile.setAttribute("id", "mYProfile")
   boxExit.setAttribute("id", "boxExit")
   boxName.setAttribute("id", "boxName")
   boxUser.setAttribute("id", "boxUser")
   name.setAttribute("id", "nombreUser")
   exit.setAttribute("id", "userExit")
+  dropDown.setAttribute("id", "dropDownUser")
  
  // añadir dependencias
   selectNav.appendChild(boxUser)
   boxUser.appendChild(boxName)
   boxUser.appendChild(boxExit)
+  boxUser.appendChild(dropDown)
+  dropDown.appendChild(myCarrito)
+  dropDown.appendChild(myProfile)
   boxName.appendChild(name)
   name.appendChild(ponerName)
   boxExit.appendChild(exit)
@@ -61,6 +72,10 @@ function user(){
   name.classList.add("usuarioName")
   exit.classList.add("usuarioName")
   boxUser.classList.add("usuario")
+  dropDown.classList.add("optionsDrop")
+
+  // inner
+
 
   // delete localstroage and exit to main
   boxExit.addEventListener("click", function() {
