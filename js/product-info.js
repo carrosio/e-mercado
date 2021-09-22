@@ -50,12 +50,25 @@ function showItemProfile(item) {
     '</div>'
 }
 
+function relatedProductsArr(index, arrProducts){
+    let newArr = []
+    for (x of index)
+    {
+        newArr.push(arrProducts[x])
+    }
+    return newArr
+}
+
+function showRelatedProducts(relatedProducts) {
+    document.getElementById("infoCont").innerHTML = 
+    '<div class="relatedProducts"></div>'
+}
 
 
 function newComment(){
     const today = new Date()
     const date = today.getFullYear() + '-' + (today.getMonth()+1)+ '-' + today.getDay()
-
+    
     const commentTxt = document.getElementById("commentTxt").value
     const commentUsr =  document.getElementById("nombreUser").textContent
     /* const selectedScore = document.getElementsByName("rankStrars") */
@@ -72,9 +85,9 @@ function newComment(){
 }
 
 
-
 function generateComentList(comments) {
     for (x of comments) {
+         const listContainerComments = document.getElementById("listContainerComments")
          const comentNew = document.createElement("li")
          comentNew.setAttribute("id", "listComment")
          comentNew.setAttribute("name", "EveryComment")
@@ -88,10 +101,13 @@ function generateComentList(comments) {
  }
 
 document.addEventListener("DOMContentLoaded",  async function(e){
+    const products = (await getJSONData(PRODUCTS_URL)).data;
     const info_car = ( await getJSONData(PRODUCT_INFO_URL)).data
     const coments = ( await getJSONData(PRODUCT_INFO_COMMENTS_URL)).data
     showItemProfile(info_car)
+    /* relatedProductsArr(info_car.relatedProducts, products) */
     let arrComents = coments
+    /* showRelatedProducts(relatedProductsArr(info_car.relatedProducts, products)) */
     function arr(){
         arrComents.push(newComment())
     }
@@ -107,7 +123,5 @@ document.addEventListener("DOMContentLoaded",  async function(e){
         document.getElementById("commentTxt").value = ''
     }
 
-
-    
     
 });

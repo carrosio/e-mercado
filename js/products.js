@@ -120,6 +120,7 @@ function filterBySearch(products) {
 document.addEventListener("DOMContentLoaded", async function (e) {
   localStorage.getItem("userFunction");
   const products = (await getJSONData(PRODUCTS_URL)).data;
+  console.log(products)
   showlist(filterAndOrder(products));
   document.getElementById("enviar").onclick = function () {
     multi(products);
