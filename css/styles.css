@@ -283,11 +283,13 @@ h4 {
   font-size: 20px;
   margin: 10px;
   margin-left: 0px;
+  margin-bottom: 100px;
 }
 
 .titleItem {
   font-size: 60px;
   font-weight: bolder;
+  margin-bottom: 30px;
 }
 
 ul > h2 {
@@ -295,6 +297,15 @@ ul > h2 {
   margin-left: 10px;
   font-size: 40px;
 }
+
+
+.elementTitleRelated{
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+
+
 
 .price {
   font-size: 35px;
@@ -308,12 +319,24 @@ ul > h2 {
   position: relative;
 }
 
+.priceRelated {
+  font-size: 30px;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  background-color: #FF1493;
+}
+
 .descriptionItem {
   padding: 10px;
   padding-left: 5px;
-  font-size: large;
-  width: 800px;
+  font-size: 20px;
+  width: 100%;
   font-style: italic;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  
 }
 
 .showImgaes {
@@ -408,7 +431,7 @@ input[type='text'] {
   border-radius: 5px;
   color: #343A40;
   padding: 10px;
-  width: 50%;
+  width: 100%;
   
 }
 label {
@@ -448,6 +471,41 @@ border-radius: 5px;
 
 }
 
+#commentBox {
+  margin-bottom: 30px;
+}
+
+.imgBoxRelated {
+  width: 250px;
+}
+
+.white-box {
+  width: max-content;
+  margin: 10px;
+  margin-top: 0;
+  padding-top: ;
+  margin-left: 0;
+  padding: 10px;
+  padding-left: 0;
+  border-radius: 5px;
+  color: #343A40;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+
+.boxRelatedItem {
+  margin: 10px;
+  margin-left: 0;
+  margin-top: 0;
+  padding: 15px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  color:#343A40;
+  text-align: center;
+}
+
 .commentTxt {
   margin-top: 10px;
   margin-left: 10px;
@@ -483,7 +541,7 @@ border-radius: 5px;
 
 #img-main{
   display: flex;
-  width: 40%;
+  width: 67%
   
 }
 

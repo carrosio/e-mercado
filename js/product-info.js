@@ -60,8 +60,29 @@ function relatedProductsArr(index, arrProducts){
 }
 
 function showRelatedProducts(relatedProducts) {
-    document.getElementById("infoCont").innerHTML = 
-    '<div class="relatedProducts"></div>'
+    console.log(relatedProducts)
+    const title = document.createElement("h2")
+    title.innerHTML= 'Relacionados ' + '<i class="fas fa-info-circle"></i>'
+    const related = document.createElement("div")
+    related.setAttribute("class", "white-box")
+    related.setAttribute("id", "relatedBox")
+    title.setAttribute("id", "relacionadosTitle")
+    document.getElementById("infoCont").appendChild(title)
+    document.getElementById("infoCont").appendChild(related)
+    
+    
+    for (x of relatedProducts) {
+        const boxItem = document.createElement("div")
+        related.appendChild(boxItem)
+        boxItem.setAttribute("id", "boxRelatedItem")
+        boxItem.setAttribute("class", "boxRelatedItem")
+        boxItem.innerHTML= 
+        ' <div class="elementRelated">' + 
+        '<h5 class="elementTitleRelated">' + x.name + '</h5>' + 
+        '<img class="imgBoxRelated" src="' + x.imgSrc + '">' +  
+        '<p id="priceRelated" class="priceRelated">' + x.cost + x.currency + '<p>'
+        '</div>'
+    }
 }
 
 
@@ -105,7 +126,7 @@ document.addEventListener("DOMContentLoaded",  async function(e){
     const info_car = ( await getJSONData(PRODUCT_INFO_URL)).data
     const coments = ( await getJSONData(PRODUCT_INFO_COMMENTS_URL)).data
     showItemProfile(info_car)
-    /* relatedProductsArr(info_car.relatedProducts, products) */
+    showRelatedProducts(relatedProductsArr(info_car.relatedProducts, products))
     let arrComents = coments
     /* showRelatedProducts(relatedProductsArr(info_car.relatedProducts, products)) */
     function arr(){
