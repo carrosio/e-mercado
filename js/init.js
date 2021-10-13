@@ -6,6 +6,8 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+const CART_BUY_URL2 = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
+
 
 
 
@@ -28,62 +30,41 @@ var hideSpinner = function(){
 
 localStorage.setItem("userFunction", user)
 
+
+
 function user(){
-  let boxUser = document.createElement("div")
-  let boxName = document.createElement("button")
-  let dropDown = document.createElement("div")
-  let myCarrito = document.createElement("a")
-  let myProfile = document.createElement("a")
-  let myExit = document.createElement("a")
-  let boxExit = document.createElement("div")
-  let name = document.createElement("p")
-  let exit = document.createElement("div")
-  let exitTxt = document.createTextNode("Salir")
-  let ponerName = document.createTextNode(checkName)
-  let selectNav = document.getElementById("menu")
   
-// atributos id
-  boxUser.setAttribute("id", "boxUser")
-  dropDown.setAttribute("id", "dropDown")
-  myCarrito.setAttribute("id", "mYcarrito")
-  myProfile.setAttribute("id", "mYProfile")
-  boxExit.setAttribute("id", "boxExit")
-  boxName.setAttribute("id", "boxName")
-  boxUser.setAttribute("id", "boxUser")
-  name.setAttribute("id", "nombreUser")
-  exit.setAttribute("id", "userExit")
-  dropDown.setAttribute("id", "dropDownUser")
- 
- // añadir dependencias
-  selectNav.appendChild(boxUser)
-  boxUser.appendChild(boxName)
-  boxUser.appendChild(boxExit)
-  boxUser.appendChild(dropDown)
-  dropDown.appendChild(myCarrito)
-  dropDown.appendChild(myProfile)
-  boxName.appendChild(name)
-  name.appendChild(ponerName)
-  boxExit.appendChild(exit)
-  exit.appendChild(exitTxt)
   
-// clases
-  boxName.classList.add("usuario")
-  boxExit.classList.add("usuario")
-  name.classList.add("usuarioName")
-  exit.classList.add("usuarioName")
-  boxUser.classList.add("usuario")
-  dropDown.classList.add("optionsDrop")
+  function exit(){
+  localStorage.removeItem("name")
+  window.location = "index.html"
+}
+  
+  const menu = document.getElementById("menu")
+  const user = document.createElement("div")
+  menu.appendChild(user)
+  user.setAttribute("class", "dropdown")
+  user.setAttribute("id", "dropdownUser")
+  document.getElementById("dropdownUser").innerHTML = 
+ '<button class="usuario btn dropdown-toggle" type="button" data-toggle="dropdown">' +
+ localStorage.getItem("name") + 
+'<span class="caret">' + 
+'</span>' +
+'</button>' +
+'<ul class="dropdown-menu">' + 
+'<li><a class="options-centered" href="my-profile.html"><i class="fas fa-user"></i> Mi Perfil</a></li> '+ 
+'<li><a class="options-centered" href="cart.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li> '+ 
+'<li><a class="options-centered" id="exitbuttom" href="#"><i class="fas fa-sign-out-alt"></i> Exit</a></li> '+ 
+ ' </ul>'
 
-  // inner
+ document.getElementById("exitbuttom").onclick = function(){exit()}
 
-
-  // delete localstroage and exit to main
-  boxExit.addEventListener("click", function() {
-    localStorage.removeItem("name")
-    window.location = "index.html"
-  })
 }
 
+/* boxExit.addEventListener("click", function() {
+    localStorage.removeItem("name")
+    window.location = "index.html"
+  }) */
 
 var getJSONData = function(url){
     var result = {};

@@ -144,13 +144,17 @@ a.custom-card:hover {
 
 .usuario {
   background-color: azure;
-
+  color: #343A40;
   border-radius: 5px;
   max-width: fit-content;
   min-width: 100px;
   text-align: center;
   flex-direction: row;
- 
+}
+
+.options-centered {
+  margin-left: 15px;
+  
 }
 
 #radioContenedor {
@@ -445,10 +449,15 @@ input {
   border-radius: 5px;
   text-align: center;
   height: 40px;
+  background: #343A40;
+  color: #fff;
   
 }
 /* 
 EMPEZAR BIEN */
+
+/* DROPDOWN BUTTOM */
+
 
 .areaBox {
   display: flex;
@@ -483,7 +492,7 @@ border-radius: 5px;
   width: max-content;
   margin: 10px;
   margin-top: 0;
-  padding-top: ;
+  
   margin-left: 0;
   padding: 10px;
   padding-left: 0;
@@ -564,4 +573,60 @@ border-radius: 5px;
   margin-bottom: 10px;
   
 }
+
+.carrito-box {
+  background-color: #229FBC;
+  margin: auto;
+  width: 100%;
+  height: 100%
+  
+}
+#item-box-carrito {
+  padding: 10px;
+  position: relative; top: 10px;
+  margin: auto;
+  background-color: #fff;
+  width: 90%;
+  height:fit-content;
+  border-radius: 5px;
+}
+
+.inputNumber {
+ width: 80px;
+}
+
+.h5-text-bottom {
+  margin-left: 50px;
+  margin-top: 30px;
+  margin-bottom: -10px;
+  color: #fff;
+}
+
+.item-cart {
+  padding: 20px;
+  font-size: larger;
+  color: #fff;
+  background-color: #343A40;
+  width: 90%;
+  margin: auto;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.buttom {
+  border-radius: 5px;
+  margin-left: 5%;
+  background-color: #fff;
+  width: 300px;
+  height: 60px;
+}
+
+#send-meth {
+  margin-top: 20px;
+}
+#sub-total {
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
 

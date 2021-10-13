@@ -91,7 +91,7 @@ function newComment(){
     const date = today.getFullYear() + '-' + (today.getMonth()+1)+ '-' + today.getDay()
     
     const commentTxt = document.getElementById("commentTxt").value
-    const commentUsr =  document.getElementById("nombreUser").textContent
+    const commentUsr = "pepe" /* document.getElementById("nombreUser").textContent */
     /* const selectedScore = document.getElementsByName("rankStrars") */
     //JQUERRY//
     const score = $('#rankStrars :selected').text()
@@ -128,7 +128,6 @@ document.addEventListener("DOMContentLoaded",  async function(e){
     showItemProfile(info_car)
     showRelatedProducts(relatedProductsArr(info_car.relatedProducts, products))
     let arrComents = coments
-    /* showRelatedProducts(relatedProductsArr(info_car.relatedProducts, products)) */
     function arr(){
         arrComents.push(newComment())
     }
