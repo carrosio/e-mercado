@@ -36,9 +36,8 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     
     let selectors = document.getElementsByName("qtyEntry");
     for (let x = 0; x < selectors.length; x++) {
-
         let selectorSelected = document.getElementById(`qty${x}`);
-        selectorSelected.onkeyup = function () {
+        selectorSelected.onchange = function () {
             subTotal(car_articles, x, selectorSelected.value);
         };
     }
