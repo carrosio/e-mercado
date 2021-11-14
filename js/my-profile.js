@@ -1,35 +1,61 @@
+let editIcon = document.getElementsByClassName("fa-edit")
+let values = document.getElementsByClassName("name-profile")
 
 
 let infoUSER = {
-    "name": "pepe" ,
-    "lastname": null ,
+    "name": "" ,
+    "lastname": "" ,
     "age": null ,
-    "mail": null,
+    "mail": "",
     "phone": null
 }
+let strInfo
+let ParseStrInfo
 
-localStorage.setItem("infoUser", infoUSER)
+JSON.stringify(infoUSER)
 
 
+function toStr() {
+    strInfo = JSON.stringify(infoUSER)
+    console.log(strInfo)
+}
+function toParse(){
+    ParseStrInfo = JSON.parse(strInfo)
+}
 
 
+function gettingValues(){
+    toStr()
+    toParse()
+    for (let x = 0; x < values.length; x++){
+        let valueType
+        if (x == 0){
+            valueType = ParseStrInfo.name
+        }
+        else if (x == 1){
+            valueType = ParseStrInfo.lastname
+        }
+        else if (x == 2){
+            valueType = ParseStrInfo.age
+        }
+        else if (x == 3){
+            valueType = ParseStrInfo.mail
+        }
+        else if (x == 4){
+            valueType = ParseStrInfo.phone
+        }
+        values[x].innerHTML = valueType
+    }
+    console.log(infoUSER)
+}
+
+function saveToLocal(){
+    localStorage.setItem("data", ParseStrInfo )
+}
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    
 
-    let editIcon = document.getElementsByClassName("fa-edit")
-    let values = document.getElementsByClassName("name-profile")
-
-    
-    for (let x = 0; x < values.length; x++) {
-        
-        let inputSaved = null
-        values[x].innerHTML = inputSaved
-        if (!inputSaved) {
-            values[x].innerHTML = `<p>¡Campo sin completar!</p>`
-        } 
-    }
-
+    gettingValues()
     for (let x = 0; x < editIcon.length; x++) {
         editIcon[x].onclick = function(){
             
@@ -51,10 +77,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 if (!newValue) {
                     alert("Ingrese un dato valido")
                 }
-                else {
-                    values[x].innerHTML = newValue
-                }
                 
+                else {
+                    if (x == 0){
+                       infoUSER.name = newValue
+                       gettingValues()
+                    }
+                    else if (x == 1){
+                        infoUSER.lastname = newValue
+                        gettingValues()
+                    }
+                    else if (x == 2) {
+                        infoUSER.age = newValue
+                        gettingValues()
+                    }
+                    else if (x == 3) {
+                        infoUSER.mail = newValue
+                        gettingValues()
+                    }
+                    else {
+                        infoUSER.phone = newValue
+                        gettingValues()
+                    }
+                }
             }
         }
     }
